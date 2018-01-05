@@ -1,0 +1,17 @@
+D:\Peacesoft.net\testcode\nganluong.vn\checkoutv3\checkoutv3\checkoutv3\obj\Debug\ResolveAssemblyReference.cache
+D:\Peacesoft.net\testcode\nganluong.vn\checkoutv3\checkoutv3\checkoutv3\bin\checkoutv3.dll
+D:\Peacesoft.net\testcode\nganluong.vn\checkoutv3\checkoutv3\checkoutv3\bin\checkoutv3.pdb
+D:\Peacesoft.net\testcode\nganluong.vn\checkoutv3\checkoutv3\checkoutv3\obj\Debug\checkoutv3.dll
+D:\Peacesoft.net\testcode\nganluong.vn\checkoutv3\checkoutv3\checkoutv3\obj\Debug\checkoutv3.pdb
+E:\Peacesoft.net\nganluong.vn2015\NganLuongV3\tichhop\checkout 3.1\checkoutv3.NET\demo_tichhop_nganluong_nganHangcheckoutv3\checkoutv3\bin\checkoutv3.dll.config
+E:\Peacesoft.net\nganluong.vn2015\NganLuongV3\tichhop\checkout 3.1\checkoutv3.NET\demo_tichhop_nganluong_nganHangcheckoutv3\checkoutv3\bin\checkoutv3.dll
+E:\Peacesoft.net\nganluong.vn2015\NganLuongV3\tichhop\checkout 3.1\checkoutv3.NET\demo_tichhop_nganluong_nganHangcheckoutv3\checkoutv3\bin\checkoutv3.pdb
+E:\Peacesoft.net\nganluong.vn2015\NganLuongV3\tichhop\checkout 3.1\checkoutv3.NET\demo_tichhop_nganluong_nganHangcheckoutv3\checkoutv3\obj\Debug\checkoutv3.csprojResolveAssemblyReference.cache
+E:\Peacesoft.net\nganluong.vn2015\NganLuongV3\tichhop\checkout 3.1\checkoutv3.NET\demo_tichhop_nganluong_nganHangcheckoutv3\checkoutv3\obj\Debug\checkoutv3.dll
+E:\Peacesoft.net\nganluong.vn2015\NganLuongV3\tichhop\checkout 3.1\checkoutv3.NET\demo_tichhop_nganluong_nganHangcheckoutv3\checkoutv3\obj\Debug\checkoutv3.pdb
+D:\WorkingSpace\Personal\checkoutv3.NET\checkoutv3\bin\checkoutv3.dll.config
+D:\WorkingSpace\Personal\checkoutv3.NET\checkoutv3\bin\checkoutv3.dll
+D:\WorkingSpace\Personal\checkoutv3.NET\checkoutv3\bin\checkoutv3.pdb
+D:\WorkingSpace\Personal\checkoutv3.NET\checkoutv3\obj\Debug\checkoutv3.csprojResolveAssemblyReference.cache
+D:\WorkingSpace\Personal\checkoutv3.NET\checkoutv3\obj\Debug\checkoutv3.dll
+D:\WorkingSpace\Personal\checkoutv3.NET\checkoutv3\obj\Debug\checkoutv3.pdb
