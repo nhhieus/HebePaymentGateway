@@ -34,6 +34,13 @@ namespace GenericPayment.Controllers
             try
             {
                 var details = db.GetDetails(paykey);
+                details = new GenericPayments();
+                details.Currency = "USD";
+                details.Gateway = "GATEWAY";
+                details.Hashkey = "HashKey";
+                details.InvoiceNo = "Invoice Number";
+                details.PayKey = "123456";
+                details.Total = "100.45";
                 if (details != null)
                 {
                     // Update details for the valid record
@@ -49,19 +56,19 @@ namespace GenericPayment.Controllers
                     vm.Note = "";
 
                     // Call Arcadier api to get the details 
-                    using (var httpClient = new HttpClient())
-                    {
-                        var url = marketplaceUrl + "/user/checkout/order-details" + "?gateway=" + details.Gateway + "&invoiceNo=" + details.InvoiceNo + "&paykey=" + paykey + "&hashkey=" + details.Hashkey;
-                        HttpResponseMessage tokenResponse = await httpClient.GetAsync(url);
-                        tokenResponse.EnsureSuccessStatusCode();
-                        string text = await tokenResponse.Content.ReadAsStringAsync();
+                    //using (var httpClient = new HttpClient())
+                    //{
+                    //    var url = marketplaceUrl + "/user/checkout/order-details" + "?gateway=" + details.Gateway + "&invoiceNo=" + details.InvoiceNo + "&paykey=" + paykey + "&hashkey=" + details.Hashkey;
+                    //    HttpResponseMessage tokenResponse = await httpClient.GetAsync(url);
+                    //    tokenResponse.EnsureSuccessStatusCode();
+                    //    string text = await tokenResponse.Content.ReadAsStringAsync();
 
-                        // Set the details to db
-                        GenericPayments response = JsonConvert.DeserializeObject<GenericPayments>(text);
-                        details.PayeeInfos = response.PayeeInfos;
-                        details.MarketplaceUrl = marketplaceUrl;
-                        db.SetDetails(paykey, details);
-                    }
+                    //    // Set the details to db
+                    //    GenericPayments response = JsonConvert.DeserializeObject<GenericPayments>(text);
+                    //    details.PayeeInfos = response.PayeeInfos;
+                    //    details.MarketplaceUrl = marketplaceUrl;
+                    //    db.SetDetails(paykey, details);
+                    //}
 
                     return View("Index", vm);
                 }

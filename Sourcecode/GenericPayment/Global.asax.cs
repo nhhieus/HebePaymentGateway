@@ -2,18 +2,15 @@
 using System.Net;
 using System.Web.Mvc;
 using System.Web.Routing;
+using GenericPayment.Utilities;
 
 namespace GenericPayment
 {
     public class GenericPaymentApplication : System.Web.HttpApplication
     {
-        private static string _databasePath;
-        public static string DatabasePath { get { return _databasePath; } }
-
         protected void Application_Start(object sender, EventArgs e)
         {
-            _databasePath = Server.MapPath("~/Database");
-
+            Logger.GetInstance().Write("Application started...");
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
@@ -47,7 +44,7 @@ namespace GenericPayment
 
         protected void Application_End(object sender, EventArgs e)
         {
-
+            Logger.GetInstance().Write("Application stopped...");
         }
     }
 }

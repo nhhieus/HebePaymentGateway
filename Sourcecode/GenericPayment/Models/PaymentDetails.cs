@@ -16,6 +16,8 @@ namespace GenericPayment.Models
     public class AgreementViewModel
     {
         public string CashKey { get; set; }
+        public string OptionPayment { get; set; }
+        public string BankCode { get; set; }
         public string Note { get; set; }
     }
 

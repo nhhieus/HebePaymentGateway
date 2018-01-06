@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using GenericPayment.Database;
 using GenericPayment.Models;
+using GenericPayment.Utilities;
 
 namespace GenericPayment.Controllers
 {
@@ -13,7 +14,7 @@ namespace GenericPayment.Controllers
         {
             try
             {
-                var randomKey = Utilities.Utils.GenerateRandomID(10);
+                var randomKey = Utils.GenerateRandomID(10);
                 var cashPayment = new GenericPayments();
                 cashPayment.Total = request.total;
                 cashPayment.InvoiceNo = request.invoiceno;
@@ -28,8 +29,9 @@ namespace GenericPayment.Controllers
 
                 return Json(randomKey, JsonRequestBehavior.AllowGet);
             }
-            catch
+            catch (Exception ex)
             {
+                Logger.GetInstance().Write(ex, "Failed during GeneratePayKey");
                 return null;
             }
         }

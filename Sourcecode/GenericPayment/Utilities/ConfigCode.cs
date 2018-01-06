@@ -1,0 +1,49 @@
+﻿using System.Web;
+using System.Web.Configuration;
+
+namespace GenericPayment.Utilities
+{
+    public class ConfigCode
+    {
+        private static readonly ConfigCode Instance = new ConfigCode();
+        public static ConfigCode GetInstance()
+        {
+            return Instance;
+        }
+
+        private ConfigCode()
+        {
+        }
+
+        public string DatabasePath
+        {
+            get
+            {
+                return HttpContext.Current.Server.MapPath("~/App_Data/Database");
+            }
+        }
+
+        public string MarketPlaceUrl
+        {
+            get { return WebConfigurationManager.AppSettings["MarketPlaceUrl"]; }
+        }
+
+
+        public string MerchantID
+        {
+            get { return WebConfigurationManager.AppSettings["MerchantID"]; }
+        }
+
+
+        public string MerchantPassword
+        {
+            get { return WebConfigurationManager.AppSettings["MerchantPassword"]; }
+        }
+
+
+        public string ReceiverEmail
+        {
+            get { return WebConfigurationManager.AppSettings["ReceiverEmail"]; }
+        }
+    }
+}
