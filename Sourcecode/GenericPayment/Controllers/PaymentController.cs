@@ -22,6 +22,7 @@ namespace GenericPayment.Controllers
                 cashPayment.PayKey = randomKey;
                 cashPayment.Gateway = request.gateway;
                 cashPayment.Hashkey = request.hashkey;
+                cashPayment.PaymentStatus = EnumPaymentStatus.Unpaid.GetHashCode();
 
                 // Save details to db
                 var db = new DbContext();

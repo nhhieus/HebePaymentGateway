@@ -1,6 +1,6 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding-top: 1px;
+    padding-bottom: 2px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -9,6 +9,24 @@
     padding-right: 15px;
 }
 
+.header {
+    height: 92px;
+}
+
+@media (min-width: 768px) {
+    .navbar-header {
+        float: left;
+        height: 92px;
+    }
+}
+
+.footer {
+    padding-top: 5px;
+}
+
+.navbar-header .center {
+    text-align: center;    
+}
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
@@ -20,6 +38,16 @@ textarea {
     color: #999;
 }
 
+.logo {
+    width: 85px;
+    height: 75px;
+    margin-top: -10px;    
+}
+
+.error {
+    color: red;    
+}
+
 .footer-wrapper {
     margin-top: 20px;
     text-align: center;    
@@ -28,6 +56,7 @@ textarea {
 .footer-navigation {
     padding-top: 25px;
     border-top: 2px solid #c8c8c8;
+    text-align: center;
 }
 
 /* Payment Options Page*/

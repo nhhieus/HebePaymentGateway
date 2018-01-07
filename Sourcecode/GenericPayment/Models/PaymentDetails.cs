@@ -18,6 +18,9 @@ namespace GenericPayment.Models
         public string CashKey { get; set; }
         public string OptionPayment { get; set; }
         public string BankCode { get; set; }
+        public string FullName { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
         public string Note { get; set; }
     }
 
@@ -62,7 +65,17 @@ namespace GenericPayment.Models
         public string Note { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string PayPalId { get; set; }
+        public string ProviderTransRefId { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public int PaymentStatus { get; set; }
+    }
+
+    public enum EnumPaymentStatus
+    {
+        Paid = 0,
+        Pending = 1,
+        Unpaid = 2
     }
 
     public class Payer

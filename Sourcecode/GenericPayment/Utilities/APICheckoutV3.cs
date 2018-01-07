@@ -138,15 +138,14 @@ namespace GenericPayment.Utilities
             return request;
         }
 
-
         private static String HttpPost(string postData)
         {
             
-            ASCIIEncoding encoding = new ASCIIEncoding();         
+            var encoding = new ASCIIEncoding();         
             byte[] data = encoding.GetBytes(postData);
 
             // Prepare web request...
-            HttpWebRequest myRequest =(HttpWebRequest)WebRequest.Create("https://www.nganluong.vn/checkout.api.nganluong.post.php");
+            var myRequest =(HttpWebRequest)WebRequest.Create(ConfigCode.GetInstance().NganLuongApiUrl);
             myRequest.Method = "POST";
             myRequest.ContentType = "application/x-www-form-urlencoded";
             myRequest.ContentLength = data.Length;
@@ -156,10 +155,11 @@ namespace GenericPayment.Utilities
             newStream.Write(data, 0, data.Length);
             newStream.Close();
 
-            HttpWebResponse response = (HttpWebResponse)myRequest.GetResponse();
-            StreamReader reader = new StreamReader(response.GetResponseStream());
+            var response = (HttpWebResponse)myRequest.GetResponse();
+            var reader = new StreamReader(response.GetResponseStream());
             string output = reader.ReadToEnd();
             response.Close();
+            
             return output;
         }
 

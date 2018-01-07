@@ -34,13 +34,6 @@ namespace GenericPayment.Controllers
             try
             {
                 var details = db.GetDetails(paykey);
-                details = new GenericPayments();
-                details.Currency = "USD";
-                details.Gateway = "GATEWAY";
-                details.Hashkey = "HashKey";
-                details.InvoiceNo = "Invoice Number";
-                details.PayKey = "123456";
-                details.Total = "100.45";
                 if (details != null)
                 {
                     // Update details for the valid record
@@ -56,19 +49,19 @@ namespace GenericPayment.Controllers
                     vm.Note = "";
 
                     // Call Arcadier api to get the details 
-                    //using (var httpClient = new HttpClient())
-                    //{
-                    //    var url = marketplaceUrl + "/user/checkout/order-details" + "?gateway=" + details.Gateway + "&invoiceNo=" + details.InvoiceNo + "&paykey=" + paykey + "&hashkey=" + details.Hashkey;
-                    //    HttpResponseMessage tokenResponse = await httpClient.GetAsync(url);
-                    //    tokenResponse.EnsureSuccessStatusCode();
-                    //    string text = await tokenResponse.Content.ReadAsStringAsync();
+                    using (var httpClient = new HttpClient())
+                    {
+                        var url = marketplaceUrl + "/user/checkout/order-details" + "?gateway=" + details.Gateway + "&invoiceNo=" + details.InvoiceNo + "&paykey=" + paykey + "&hashkey=" + details.Hashkey;
+                        HttpResponseMessage tokenResponse = await httpClient.GetAsync(url);
+                        tokenResponse.EnsureSuccessStatusCode();
+                        string text = await tokenResponse.Content.ReadAsStringAsync();
 
-                    //    // Set the details to db
-                    //    GenericPayments response = JsonConvert.DeserializeObject<GenericPayments>(text);
-                    //    details.PayeeInfos = response.PayeeInfos;
-                    //    details.MarketplaceUrl = marketplaceUrl;
-                    //    db.SetDetails(paykey, details);
-                    //}
+                        // Set the details to db
+                        GenericPayments response = JsonConvert.DeserializeObject<GenericPayments>(text);
+                        details.PayeeInfos = response.PayeeInfos;
+                        details.MarketplaceUrl = marketplaceUrl;
+                        db.SetDetails(paykey, details);
+                    }
 
                     return View("Index", vm);
                 }
@@ -141,7 +134,7 @@ namespace GenericPayment.Controllers
                     if (createdPayment != null && createdPayment.links.Count > 0)
                     {
                         var id = createdPayment.id;
-                        details.PayPalId = id;
+                        details.ProviderTransRefId = id;
                         bool result = db.SetDetails(vm.CashKey, details);
                         if (result)
                         {
@@ -189,10 +182,10 @@ namespace GenericPayment.Controllers
 
             var db = new DbContext();
             var details = db.GetDetails(key);
-            if (details != null && details.PayPalId == paymentId)
+            if (details != null && details.ProviderTransRefId == paymentId)
             {
                 var paymentExecution = new PaymentExecution() {payer_id = PayerID };
-                var payment = new Payment() {id = details.PayPalId};
+                var payment = new Payment() {id = details.ProviderTransRefId};
 
                 // Get a reference to the config
                 var config = ConfigManager.Instance.GetProperties();

@@ -1,0 +1,32 @@
+﻿@using System
+
+@{
+    ViewBag.Title = "Index";
+    var invoiceNo = "ARCTICK-" + DateTime.Now.ToString("yyMMddHHmmss");
+    var haskKey = Guid.NewGuid().ToString();
+}
+
+<h2>Payment information</h2>
+<form>
+    <div class="form-group">
+        <label for="txtInvoice">Invoice Number:</label>
+        <input type="text" class="form-control" id="txtInvoice" value="@invoiceNo" />
+    </div>
+    <div class="form-group">
+        <label for="txtAmount">Amount:</label>
+        <input type="text" class="form-control" id="txtAmount" value="9.99" />
+    </div>
+    <div class="form-group">
+        <label for="txtHashKey">Hash Key:</label>
+        <input type="text" class="form-control" id="txtHashKey" value="@haskKey" />
+    </div>
+    <div class="form-group">
+        <label for="txtGateway">Gateway:</label>
+        <input type="text" class="form-control" id="txtGateway" value="HebeGW" />
+    </div>
+    <button type="submit" id="btnProceed" class="btn btn-primary">Proceed Payment</button>
+</form>
+
+@section scripts{
+    <script src="~/Scripts/payment.js"></script>
+}

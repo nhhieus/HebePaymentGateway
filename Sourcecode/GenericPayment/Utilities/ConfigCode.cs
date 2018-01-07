@@ -19,7 +19,7 @@ namespace GenericPayment.Utilities
         {
             get
             {
-                return HttpContext.Current.Server.MapPath("~/App_Data/Database");
+                return HttpContext.Current.Server.MapPath("~/AppData/Database");
             }
         }
 
@@ -28,6 +28,10 @@ namespace GenericPayment.Utilities
             get { return WebConfigurationManager.AppSettings["MarketPlaceUrl"]; }
         }
 
+        public string NganLuongApiUrl
+        {
+            get { return WebConfigurationManager.AppSettings["NganLuongApiUrl"]; }
+        }
 
         public string MerchantID
         {

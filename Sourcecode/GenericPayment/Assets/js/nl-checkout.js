@@ -2,22 +2,32 @@
     e.preventDefault();
     var data = {};
     data["CashKey"] = $("#cashkey").val();
-    data["OptionPayment"] = $("option_payment").is(":checked").val();
-    data["BankCode"] = $("bankcode").is(":checked").val();
+    data["OptionPayment"] = $("input:radio[name=option_payment]:checked").val();
+    data["BankCode"] = $("input:radio[name=bankcode]:checked").val();
+    data["FullName"] = $("#txtFullName").val();
+    data["Email"] = $("#txtEmail").val();
+    data["Phone"] = $("#txtPhone").val();
 
+    if (data["FullName"] == "" || data["Email"] == "" || data["Phone"] == "") {
+        $("#fillinfo").addClass("error");
+        return;
+    }
+
+    var url = $("#agreeUrl").val();
     $.ajax({
-        url: '/paypal/AgreeToPay',
+        url: url,
         data: data,
         type: 'POST',
         success: function (response) {
-            if (response.result !== undefined) {
+            if (response.result && response.result.redirectUrl != "") {
                 window.location = response.result;
             } else {
-                toastr.error('Something went wrong! Please try again later.', 'Error');
+                $("#divError").html(response.message, 'Error');
+                $("#divError").addClass("error");
             }
         },
         error: function () {
-            toastr.error('Failed!', 'Error');
+            $("#divError").error('Failed!', 'Error');
         }
     });
 });
@@ -27,8 +37,9 @@ jQuery("#cancel").click(function (e) {
     var data = {};
     data["CashKey"] = $("#cashkey").val();
 
+    var url = $("#cancelUrl");
     $.ajax({
-        url: '/paypal/canceltopay',
+        url: url,
         data: data,
         type: 'POST',
         success: function (response) {
