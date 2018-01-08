@@ -230,7 +230,7 @@
                 <label>Họ Tên: <span class="error">*</span> </label>
             </div>
             <div class="col-md-10">
-                <input type="text" id="txtFullName" width="200px" />
+                <input type="text" id="txtFullName" width="200px" value="test" />
             </div>
         </div>
         <div class="row" style="margin-top: 5px">
@@ -238,7 +238,7 @@
                 <label>Email: <span class="error">*</span> </label>
             </div>
             <div class="col-md-10">
-                <input type="text" id="txtEmail" width="200px" />
+                <input type="text" id="txtEmail" width="200px" value="test@yahoo.com" />
             </div>
         </div>
         <div class="row" style="margin-top: 5px">
@@ -246,31 +246,32 @@
                 <label>Số Điện thoại:<span class="error">*</span>  </label>
             </div>
             <div class="col-md-10">
-                <input type="text" id="txtPhone" width="200px" />
+                <input type="text" id="txtPhone" width="200px" value="0909112233" />
             </div>
         </div>
 
-        <div id="divError" class="has-error" style="margin-top: 5px; color: red"> </div>
+        <div id="divError" class="error" style="margin-top: 10px"> </div>
+        <div style="margin-top: 5px">
+            <input type="hidden"
+                   value="@Url.Action("AgreeToPay", "NganLuong")"
+                   id="agreeUrl" />
 
-        <input type="hidden"
-               value="@Url.Action("AgreeToPay", "NganLuong")"
-               id="agreeUrl" />
+            <input type="hidden"
+                   value="@Url.Action("CancelToPay", "NganLuong")"
+                   id="cancelUrl" />
 
-        <input type="hidden"
-               value="@Url.Action("CancelToPay", "NganLuong")"
-               id="cancelUrl" />
-
-        <input type="hidden"
-               value="@Model.CashKey"
-               id="cashkey" />
-        <input class="custommargin"
-               type="submit"
-               id="agree"
-               value="Thanh Toán">
-        <input class="custommargin"
-               type="submit"
-               id="cancel"
-               value="Cancel">
+            <input type="hidden"
+                   value="@Model.CashKey"
+                   id="cashkey" />
+            <input class="custommargin"
+                   type="submit"
+                   id="agree"
+                   value="Thanh Toán">
+            <input class="custommargin"
+                   type="submit"
+                   id="cancel"
+                   value="Cancel">
+        </div>
     </div>
 </div>
 @section scripts {

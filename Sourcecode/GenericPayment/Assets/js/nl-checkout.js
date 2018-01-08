@@ -9,7 +9,12 @@
     data["Phone"] = $("#txtPhone").val();
 
     if (data["FullName"] == "" || data["Email"] == "" || data["Phone"] == "") {
-        $("#fillinfo").addClass("error");
+        $("#divError").html("Vui lòng nhập họ tên, email và số điện thoại.");
+        return;
+    }
+
+    if (data["OptionPayment"] == "ATM_ONLINE" && data["BankCode"] == undefined) {
+        $("#divError").html("Vui lòng chọn ngân hang nội đia để tiến hành thanh toán.");
         return;
     }
 
@@ -23,7 +28,6 @@
                 window.location = response.result;
             } else {
                 $("#divError").html(response.message, 'Error');
-                $("#divError").addClass("error");
             }
         },
         error: function () {
@@ -37,7 +41,7 @@ jQuery("#cancel").click(function (e) {
     var data = {};
     data["CashKey"] = $("#cashkey").val();
 
-    var url = $("#cancelUrl");
+    var url = $("#cancelUrl").val();
     $.ajax({
         url: url,
         data: data,
@@ -46,11 +50,11 @@ jQuery("#cancel").click(function (e) {
             if (response.result !== undefined) {
                 window.location = response.result;
             } else {
-                toastr.error('Something went wrong! Please try again later.', 'Error');
+                alert("Error", 'Something went wrong! Please try again later.');
             }
         },
         error: function () {
-            toastr.error('Failed!', 'Error');
+            alert("Error", 'Failed! Please try again later.');
         }
     });
 });

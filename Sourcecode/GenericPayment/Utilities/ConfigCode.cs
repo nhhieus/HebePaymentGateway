@@ -38,12 +38,10 @@ namespace GenericPayment.Utilities
             get { return WebConfigurationManager.AppSettings["MerchantID"]; }
         }
 
-
         public string MerchantPassword
         {
             get { return WebConfigurationManager.AppSettings["MerchantPassword"]; }
         }
-
 
         public string ReceiverEmail
         {

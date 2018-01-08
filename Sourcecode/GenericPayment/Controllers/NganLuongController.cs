@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -51,7 +52,7 @@ namespace GenericPayment.Controllers
                         tokenResponse.EnsureSuccessStatusCode();
                         string text = await tokenResponse.Content.ReadAsStringAsync();
 
-                       #region DEBUG - Remove dummy code below
+                        #region DEBUG - Remove dummy code below
 
                         var response = new GenericPayments();
                         response.InvoiceNo = "ABC";
@@ -119,6 +120,8 @@ namespace GenericPayment.Controllers
         private string GetMarketPlaceUrl()
         {
             var marketplaceUrl = ConfigCode.GetInstance().MarketPlaceUrl;
+
+            //DEBUG - Remove comment below 
             //if (Request.UrlReferrer != null)
             //{
             //    marketplaceUrl = Request.UrlReferrer.ToString();
@@ -138,6 +141,9 @@ namespace GenericPayment.Controllers
 
             try
             {
+                //DEBUG
+                Logger.GetInstance().Write(JsonConvert.SerializeObject(vm));
+
                 var details = db.GetDetails(vm.CashKey);
                 if (details != null)
                 {
@@ -149,6 +155,7 @@ namespace GenericPayment.Controllers
                     info.Receiver_email = ConfigCode.GetInstance().ReceiverEmail;
 
                     info.cur_code = "vnd";
+                    info.Payment_method = vm.OptionPayment;
                     info.bank_code = vm.BankCode;
                     info.Order_code = details.InvoiceNo;
                     info.Total_amount = details.Total;
@@ -162,19 +169,20 @@ namespace GenericPayment.Controllers
                     info.order_description = "";
                     // End of optional fields
 
-                    string host = HttpContext.Request.Url.Scheme + "://" + HttpContext.Request.Url.Authority;
+                    //string host = HttpContext.Request.Url.Scheme + "://" + HttpContext.Request.Url.Authority;
+                    string host = "http://localhost/genericpayment";
                     string baseUrl = string.Format("{0}/nganluong/return?", host);
                     info.return_url = baseUrl + "key=" + vm.CashKey;
                     info.cancel_url = baseUrl + "key=" + vm.CashKey + "&type=" + ReturnType.Cancel.GetHashCode();
                     info.time_limit = baseUrl + "key=" + vm.CashKey + "&type=" + ReturnType.Timeout.GetHashCode();
-                  
+
                     //DEBUG
                     Logger.GetInstance().Write("RequestInfo");
                     Logger.GetInstance().Write(JsonConvert.SerializeObject(info));
 
                     var objApiCheckout = new APICheckoutV3();
                     ResponseInfo checkoutRs = objApiCheckout.GetUrlCheckout(info, vm.OptionPayment);
-                    
+
                     //DEBUG
                     Logger.GetInstance().Write("Check out response:");
                     Logger.GetInstance().Write(JsonConvert.SerializeObject(checkoutRs));
@@ -195,6 +203,7 @@ namespace GenericPayment.Controllers
                     }
                     else
                     {
+                        ;
                         errorMessage = string.Format("Error Description: {0}. <br/> Something went wrong! Please try again later.", checkoutRs.Description);
                         Logger.GetInstance().Write(string.Format("[Key={0}] Failed to check out(Code={1};Desc={2})", vm.CashKey, checkoutRs.Error_code, checkoutRs.Description));
                     }
@@ -217,22 +226,26 @@ namespace GenericPayment.Controllers
             return Json(new { result = url }, JsonRequestBehavior.AllowGet);
         }
 
-
-        // NganLuong will return to this endpoint
-        // If cancel = true, the user has cancelled in ngan luong
+        /// <summary>
+        /// NganLuong will return to this endpoint.
+        /// </summary>
+        /// <param name="token">return token if success</param>
+        /// <param name="key"></param>
+        /// <param name="type">0: success; 1: cancel; 2: timeout</param>
+        /// <returns></returns>
         [ActionName("return")]
         public ActionResult PaymentReturn(string token, string key, int type = 0)
         {
             string result;
-            
+
             //DEBUG
             Logger.GetInstance().Write("Payment Return URL:");
             Logger.GetInstance().Write(Request.Url.AbsoluteUri.ToString());
 
-            if (type == ReturnType.Cancel.GetHashCode() || type == ReturnType.Timeout.GetHashCode() || 
+            if (type == ReturnType.Cancel.GetHashCode() || type == ReturnType.Timeout.GetHashCode() ||
                 string.IsNullOrEmpty(key) || string.IsNullOrEmpty(token))
             {
-                result = DbContext.CancelUrl(token);
+                result = DbContext.CancelUrl(key);
                 return Redirect(result);
             }
 
@@ -246,7 +259,7 @@ namespace GenericPayment.Controllers
                 info.Token = token;
                 var objApiCheckout = new APICheckoutV3();
                 ResponseCheckOrder checkOrderRs = objApiCheckout.GetTransactionDetail(info);
-               
+
                 //DEBUG
                 Logger.GetInstance().Write("Transaction details:");
                 Logger.GetInstance().Write(JsonConvert.SerializeObject(checkOrderRs));
@@ -265,7 +278,7 @@ namespace GenericPayment.Controllers
                 }
 
                 var updateRs = db.SetDetails(key, details);
-                
+
                 // Build the success url and redirect back to Arcadier
                 result = DbContext.SuccessUrl(key, "");
                 return Redirect(result);
