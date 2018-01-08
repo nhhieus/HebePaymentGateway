@@ -103,6 +103,7 @@
   <ItemGroup>
     <Content Include="Assets\css\style.css" />
     <Content Include="Assets\css\toastr.css" />
+    <Content Include="Assets\img\ajax-loader.gif" />
     <Content Include="Assets\img\hebe.png" />
     <Content Include="Assets\img\pp.png" />
     <Content Include="Assets\js\nl-checkout.js" />
@@ -110,6 +111,7 @@
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-2.2.4.min.map" />
     <None Include="Properties\PublishProfiles\CashPayment.pubxml" />
+    <Content Include="Scripts\spin.js" />
     <Content Include="Views\Home\Welcome.cshtml" />
     <Content Include="Views\PayPal\Index.cshtml" />
     <None Include="Properties\PublishProfiles\genericpayment.pubxml" />

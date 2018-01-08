@@ -134,3 +134,22 @@ ul.cardList li {
 	width: 90px;
 }
 
+
+/*** Loading Mask ***/
+.popup-container {
+    background-color: #333;
+    color: #fff;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999999;
+    opacity: 0.95;
+}
+
+#loadingMask {
+    color: #ffac00;
+    display: block;
+}

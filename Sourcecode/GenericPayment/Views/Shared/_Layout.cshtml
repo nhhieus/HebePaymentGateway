@@ -8,6 +8,7 @@
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/spin.js"></script>
     @RenderSection("headercss", required: false)
 </head>
 <body>
@@ -22,6 +23,7 @@
     <div class="container footer">
         @Html.Partial("_Footer")
     </div>
+    <div id="loadingMask" class="popup-container"></div>
     <script src="~/scripts/jquery-2.2.4.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     @RenderSection("scripts", required: false)
