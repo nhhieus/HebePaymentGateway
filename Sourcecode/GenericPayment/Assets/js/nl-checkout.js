@@ -44,11 +44,13 @@ jQuery("#agree").click(function (e) {
     data["Phone"] = $("#txtPhone").val();
 
     if (data["FullName"] == "" || data["Email"] == "" || data["Phone"] == "") {
+        $("#divError").removeClass("hide");
         $("#divError").html("Vui lòng nhập họ tên, email và số điện thoại.");
         return;
     }
 
     if (data["OptionPayment"] == "ATM_ONLINE" && data["BankCode"] == undefined) {
+        $("#divError").removeClass("hide");
         $("#divError").html("Vui lòng chọn ngân hang nội đia để tiến hành thanh toán.");
         return;
     }
@@ -62,11 +64,12 @@ jQuery("#agree").click(function (e) {
             if (response.result && response.result.redirectUrl != "") {
                 window.location = response.result;
             } else {
+                $("#divError").removeClass("hide");
                 $("#divError").html(response.message, 'Error');
             }
         },
         error: function () {
-            $("#divError").error('Failed!', 'Error');
+            alert("Error", 'Something went wrong! Please try again later.');
         }
     });
 });

@@ -61,7 +61,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phương Thức Thanh Toán.
+        ///   Looks up a localized string similar to  Phương Thức Thanh Toán.
         /// </summary>
         internal static string SubTitle {
             get {
@@ -70,7 +70,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hebe Thanh Toán.
+        ///   Looks up a localized string similar to Cổng Thanh Toán HebeVietNam.
         /// </summary>
         internal static string Title {
             get {

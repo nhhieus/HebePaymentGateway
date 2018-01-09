@@ -20,19 +20,10 @@
     }
 }
 
-.footer {
-    padding-top: 5px;
-}
-
 .navbar-header .center {
     text-align: center;    
 }
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
+
 
 .copyright-text {
     color: #999;
@@ -48,12 +39,19 @@ textarea {
     color: red;    
 }
 
-.footer-wrapper {
-    margin-top: 20px;
-    text-align: center;    
+.footer {
+    padding-top: 5px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
 }
 
 .footer-navigation {
+    margin-top: 20px;
     padding-top: 25px;
     border-top: 2px solid #c8c8c8;
     text-align: center;
@@ -61,39 +59,6 @@ textarea {
 
 /* Payment Options Page*/
 
-ul.bankList {
-	clear: both;
-	height: 202px;
-	width: 636px;
-}
-ul.bankList li {
-	list-style-position: outside;
-	list-style-type: none;
-	cursor: pointer;
-	float: left;
-	margin-right: 0;
-	padding: 5px 2px;
-	text-align: center;
-	width: 90px;
-}
-.list-content li {
-	list-style: none outside none;
-	margin: 0 0 10px;
-}
-	
-.list-content li .boxContent {
-	display: none;
-	width: 636px;
-	border:1px solid #cccccc;
-	padding:10px; 
-}
-.list-content li.active .boxContent {
-	display: block;
-}
-.list-content li .boxContent ul {
-	height:280px;
-}
-	
 i.VISA, i.MASTE, i.AMREX, i.JCB, i.VCB, i.TCB, i.MB, i.VIB, i.ICB, i.EXB, i.ACB, i.HDB, i.MSB, i.NVB, i.DAB, i.SHB, i.OJB, i.SEA, i.TPB, i.PGB, i.BIDV, i.AGB, i.SCB, i.VPB, i.VAB, i.GPB, i.SGB,i.NAB,i.BAB 
 { width:80px; height:30px; display:block; background:url(https://www.nganluong.vn/webskins/skins/nganluong/checkout/version3/images/bank_logo.png) no-repeat;}
 i.MASTE { background-position:0px -31px}
