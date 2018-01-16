@@ -122,8 +122,7 @@ namespace GenericPayment.Controllers
                     info.order_description = "";
                     // End of optional fields
 
-                    //string host = HttpContext.Request.Url.Scheme + "://" + HttpContext.Request.Url.Authority;
-                    string host = "http://localhost/genericpayment";
+                    string host = HttpContext.Request.Url.Scheme + "://" + HttpContext.Request.Url.Authority;
                     string baseUrl = string.Format("{0}/nganluong/return?", host);
                     info.return_url = baseUrl + "key=" + vm.CashKey;
                     info.cancel_url = baseUrl + "key=" + vm.CashKey + "&type=" + ReturnType.Cancel.GetHashCode();
