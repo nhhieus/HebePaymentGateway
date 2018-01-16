@@ -9,6 +9,7 @@ namespace GenericPayment.Controllers
     public class PaymentController : Controller
     {
         // Generate a paykey for each request
+        [AllowCrossSiteJsonAttribute]
         [HttpPost]
         public JsonResult GeneratePaykey(GenericPaymentRequest request)
         {

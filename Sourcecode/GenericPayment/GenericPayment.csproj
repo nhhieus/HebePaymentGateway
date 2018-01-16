@@ -161,6 +161,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Code\LoggedOrAuthorizedAttribute.cs" />
+    <Content Include="App_Code\SessionManager.cs" />
+    <Compile Include="App_Code\AllowCrossSiteJsonAttribute.cs" />
     <Compile Include="App_GlobalResources\Application.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -205,7 +208,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>58910</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
