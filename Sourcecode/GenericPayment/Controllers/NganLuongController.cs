@@ -52,54 +52,8 @@ namespace GenericPayment.Controllers
                         tokenResponse.EnsureSuccessStatusCode();
                         string text = await tokenResponse.Content.ReadAsStringAsync();
 
-                        #region DEBUG - Remove dummy code below
-
-                        var response = new GenericPayments();
-                        response.InvoiceNo = "ABC";
-                        response.PayeeInfos = new List<Payee>();
-                        var payee1 = new Payee();
-                        response.PayeeInfos.Add(payee1);
-                        payee1.Total = 20.45M;
-                        payee1.Currency = "VND";
-                        payee1.Items = new List<Item>();
-                        payee1.Items.Add(new Item()
-                                         {
-                                             Id = "3704 - 8417",
-                                             Name = "Sample item",
-                                             Description = "Sample description",
-                                             Currency = "USD",
-                                             Price = 99.99M,
-                                             Quantity = 1
-                                         });
-                        payee1.Items.Add(new Item()
-                                         {
-                                             Id = "Admin Fee - Order 3704",
-                                             Name = "Fee (deduected)",
-                                             Description = "Admin fee",
-                                             Currency = "USD",
-                                             Price = 9.99M,
-                                             Quantity = 1
-                                         });
-
-                        var payee2 = new Payee();
-                        response.PayeeInfos.Add(payee2);
-                        payee2.Total = 9.99M;
-                        payee2.Currency = "VND";
-                        payee2.Items = new List<Item>();
-                        payee2.Items.Add(new Item()
-                                         {
-                                             Id = "ARCTICK - 1234567",
-                                             Name = "Sample item",
-                                             Description = "Sample description",
-                                             Currency = "USD",
-                                             Price = 9.99M,
-                                             Quantity = 1
-                                         });
-
-                        #endregion
-
                         // Set the details to db
-                        //var response = JsonConvert.DeserializeObject<GenericPayments>(text);
+                        var response = JsonConvert.DeserializeObject<GenericPayments>(text);
                         details.PayeeInfos = response.PayeeInfos;
                         details.MarketplaceUrl = marketplaceUrl;
                         db.SetDetails(paykey, details);
@@ -121,14 +75,13 @@ namespace GenericPayment.Controllers
         {
             var marketplaceUrl = ConfigCode.GetInstance().MarketPlaceUrl;
 
-            //DEBUG - Remove comment below 
-            //if (Request.UrlReferrer != null)
-            //{
-            //    marketplaceUrl = Request.UrlReferrer.ToString();
-            //}
+            if (Request.UrlReferrer != null)
+            {
+                marketplaceUrl = Request.UrlReferrer.ToString();
+            }
 
-            //var uri = new Uri(marketplaceUrl);
-            //marketplaceUrl = uri.Scheme + Uri.SchemeDelimiter + uri.Authority;
+            var uri = new Uri(marketplaceUrl);
+            marketplaceUrl = uri.Scheme + Uri.SchemeDelimiter + uri.Authority;
 
             return marketplaceUrl;
         }
@@ -142,7 +95,7 @@ namespace GenericPayment.Controllers
             try
             {
                 //DEBUG
-                Logger.GetInstance().Write(JsonConvert.SerializeObject(vm));
+                //Logger.GetInstance().Write(JsonConvert.SerializeObject(vm));
 
                 var details = db.GetDetails(vm.CashKey);
                 if (details != null)
@@ -177,15 +130,15 @@ namespace GenericPayment.Controllers
                     info.time_limit = baseUrl + "key=" + vm.CashKey + "&type=" + ReturnType.Timeout.GetHashCode();
 
                     //DEBUG
-                    Logger.GetInstance().Write("RequestInfo");
-                    Logger.GetInstance().Write(JsonConvert.SerializeObject(info));
+                    //Logger.GetInstance().Write("RequestInfo");
+                    //Logger.GetInstance().Write(JsonConvert.SerializeObject(info));
 
                     var objApiCheckout = new APICheckoutV3();
                     ResponseInfo checkoutRs = objApiCheckout.GetUrlCheckout(info, vm.OptionPayment);
 
                     //DEBUG
-                    Logger.GetInstance().Write("Check out response:");
-                    Logger.GetInstance().Write(JsonConvert.SerializeObject(checkoutRs));
+                    //Logger.GetInstance().Write("Check out response:");
+                    //Logger.GetInstance().Write(JsonConvert.SerializeObject(checkoutRs));
 
                     if (checkoutRs.Error_code == "00")
                     {
@@ -239,8 +192,8 @@ namespace GenericPayment.Controllers
             string result;
 
             //DEBUG
-            Logger.GetInstance().Write("Payment Return URL:");
-            Logger.GetInstance().Write(Request.Url.AbsoluteUri.ToString());
+            //Logger.GetInstance().Write("Payment Return URL:");
+            //Logger.GetInstance().Write(Request.Url.AbsoluteUri.ToString());
 
             if (type == ReturnType.Cancel.GetHashCode() || type == ReturnType.Timeout.GetHashCode() ||
                 string.IsNullOrEmpty(key) || string.IsNullOrEmpty(token))
@@ -261,8 +214,8 @@ namespace GenericPayment.Controllers
                 ResponseCheckOrder checkOrderRs = objApiCheckout.GetTransactionDetail(info);
 
                 //DEBUG
-                Logger.GetInstance().Write("Transaction details:");
-                Logger.GetInstance().Write(JsonConvert.SerializeObject(checkOrderRs));
+                //Logger.GetInstance().Write("Transaction details:");
+               // Logger.GetInstance().Write(JsonConvert.SerializeObject(checkOrderRs));
 
                 switch (checkOrderRs.transactionStatus)
                 {
