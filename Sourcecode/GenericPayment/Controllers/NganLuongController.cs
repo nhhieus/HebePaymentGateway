@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
+using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using GenericPayment.Database;
 using GenericPayment.Models;
 using GenericPayment.Utilities;
+using log4net.Util;
 using Newtonsoft.Json;
 using PayPal.Api;
 using Item = GenericPayment.Models.Item;
@@ -20,6 +24,16 @@ namespace GenericPayment.Controllers
         Success = 0,
         Cancel = 1,
         Timeout = 2
+    }
+
+    [Serializable]
+    public class SearchCriteria
+    {
+        public string invoiceno { get; set; }
+        public string paykey { get; set; }
+        public string providertransref { get; set; }
+        public string fromdate { get; set; }
+        public string todate { get; set; }
     }
 
     public class NganLuongController : Controller
@@ -214,7 +228,7 @@ namespace GenericPayment.Controllers
 
                 //DEBUG
                 //Logger.GetInstance().Write("Transaction details:");
-               // Logger.GetInstance().Write(JsonConvert.SerializeObject(checkOrderRs));
+                // Logger.GetInstance().Write(JsonConvert.SerializeObject(checkOrderRs));
 
                 switch (checkOrderRs.transactionStatus)
                 {
@@ -242,5 +256,109 @@ namespace GenericPayment.Controllers
                 return Redirect(result);
             }
         }
+
+        [LoggedOrAuthorized]
+        public ActionResult Admin()
+        {
+            try
+            {
+                return View("Admin");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = ex.Message;
+                Logger.GetInstance().Write(ex, "Exception thrown in NganLuongController.Admin");
+            }
+
+            return View("Error");
+        }
+
+        [LoggedOrAuthorized]
+        [HttpPost]
+        public ActionResult Search(SearchCriteria objCriteria)
+        {
+            try
+            {
+                var model = SearchData(objCriteria);
+
+                return PartialView("SearchResult", model);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = ex.Message;
+                Logger.GetInstance().Write(ex, "Exception thrown in NganLuongController.Search");
+            }
+
+            return View("Error");
+        }
+
+        private AdminModel SearchData(SearchCriteria objCriteria)
+        {
+            var model = new AdminModel { PaymentItems = new List<PaymentItemModel>() };
+
+            try
+            {
+                var dataPath = ConfigCode.GetInstance().DatabasePath;
+                var directoryInfo = new DirectoryInfo(dataPath);
+                var fileList = directoryInfo.GetFiles();
+                if (fileList.Any())
+                {
+                    foreach (var fileInfo in fileList)
+                    {
+                        var paymentInfo = System.IO.File.ReadAllText(fileInfo.FullName);
+                        var payment = JsonConvert.DeserializeObject<GenericPayments>(paymentInfo);
+
+                        var searchMatch = true;
+                        if (!string.IsNullOrEmpty(objCriteria.invoiceno))
+                        {
+                            searchMatch = payment.InvoiceNo.Equals(objCriteria.invoiceno, StringComparison.OrdinalIgnoreCase);
+                        }
+
+                        if (searchMatch && !string.IsNullOrEmpty(objCriteria.paykey))
+                        {
+                            searchMatch = payment.PayKey.Equals(objCriteria.paykey, StringComparison.OrdinalIgnoreCase);
+                        }
+
+                        if (searchMatch && !string.IsNullOrEmpty(objCriteria.providertransref))
+                        {
+                            searchMatch = payment.ProviderTransRefId.Equals(objCriteria.providertransref, StringComparison.OrdinalIgnoreCase);
+                        }
+
+                        if (searchMatch)
+                        {
+                            var updatedDateTime = fileInfo.CreationTime.Date;
+                            var fromDate = DateTime.ParseExact(objCriteria.fromdate, "dd/MM/yyyy", CultureInfo.CurrentCulture.DateTimeFormat, DateTimeStyles.None);
+                            var toDate = DateTime.ParseExact(objCriteria.todate, "dd/MM/yyyy", CultureInfo.CurrentCulture.DateTimeFormat, DateTimeStyles.None);
+
+                            if (payment.AgreedDateTime.HasValue)
+                            {
+                                updatedDateTime = payment.AgreedDateTime.Value.Date;
+                            }
+
+                            searchMatch = updatedDateTime >= fromDate && updatedDateTime <= toDate;
+                        }
+
+                        if (searchMatch)
+                        {
+                            model.PaymentItems.Add(new PaymentItemModel()
+                            {
+                                Payment = payment,
+                                RawData = paymentInfo,
+                                FileInformation = fileInfo
+                            });
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Logger.GetInstance().Write(ex, "Exception thrown in NganLuongController.SearchData");
+            }
+
+            return model;
+        }
     }
+
+
 }

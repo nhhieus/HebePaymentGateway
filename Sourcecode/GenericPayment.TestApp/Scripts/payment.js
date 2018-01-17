@@ -8,12 +8,12 @@
     data["gateway"] = $("#txtGateway").val();
 
     $.ajax({
-        url: 'http://localhost/genericpayment/payment/GeneratePaykey',
+        url: 'http://thanhtoan.hebevn.com/payment/GeneratePaykey',
         data: data,
         type: 'POST',
         success: function (response) {
             if (response != "") {
-                window.location = 'http://localhost/genericpayment/nganluong/index?invoiceNo=' + data["invoiceno"] + '&paykey=' + response;
+                window.location = 'http://thanhtoan.hebevn.com/nganluong/index?invoiceNo=' + data["invoiceno"] + '&paykey=' + response;
             } else {
                 alert("Error", "Failed to connect payment gateway");
             }

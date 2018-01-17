@@ -1,0 +1,67 @@
+﻿@using GenericPayment.Models
+@using PayPal.Api
+@{
+    ViewBag.Title = "Admin";
+}
+
+@section headercss
+{
+    <!-- Include Bootstrap Datepicker -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
+}
+
+<div class="container">
+    <div class="container">
+        <div class="row">
+            <h3>Payment Transaction History</h3>
+        </div>
+        <div class="row well" style="width: 97%">
+            <div class="container">
+                <div class="form-group row">
+                    <div class="col-xs-2">
+                        <label for="invoiceno">Invoice Number:</label>
+                        <input type="text" class="form-control" placeholder="Invoice Number" id="invoiceno">
+                    </div>
+                    <div class="col-xs-2">
+                        <label for="paykey">Paykey:</label>
+                        <input type="text" class="form-control" placeholder="Paykey" id="paykey">
+                    </div>
+                    <div class="col-xs-2">
+                        <label for="providertransref">Provider TransRef:</label>
+                        <input type="text" class="form-control" placeholder="Provider TransRef" id="providertransref">
+                    </div>
+                    <div class="col-xs-2">
+                        <label for="fromdate">From Date:</label>
+                        <div class="input-group input-append date" id="fromDatePicker">
+                            <input type="text" class="form-control" placeholder="From Date" id="fromdate">
+                            <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <label for="todate">To Date:</label>
+                        <div class="input-group input-append date" id="toDatePicker">
+                            <input type="text" class="form-control" placeholder="To Date" id="todate">
+                            <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <label for="btnSearch">&nbsp;</label>
+                        <div class="">
+                            <button type="submit" id="btnSearch" class="btn btn-primary">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="searchResult" class="row text-center">
+        </div>
+    </div>
+</div>
+<input type="hidden" id="searchUrl" value="@Url.Action("Search", "NganLuong")" />
+@section scripts {
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/assets/js/nl-admin.js"></script>
+
+}

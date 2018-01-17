@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using Newtonsoft.Json;
 
 namespace GenericPayment.Models
@@ -117,5 +118,16 @@ namespace GenericPayment.Models
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public int Quantity { get; set; }
+    }
+
+    public class PaymentItemModel
+    {
+        public GenericPayments Payment;
+        public string RawData;
+        public FileInfo FileInformation;
+    }
+    public class AdminModel
+    {
+        public List<PaymentItemModel> PaymentItems;
     }
 }

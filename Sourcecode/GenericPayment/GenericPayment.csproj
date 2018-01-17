@@ -106,6 +106,8 @@
     <Content Include="Assets\img\ajax-loader.gif" />
     <Content Include="Assets\img\hebe.png" />
     <Content Include="Assets\img\pp.png" />
+    <Content Include="Scripts\paymentcore.js" />
+    <Content Include="Assets\js\nl-admin.js" />
     <Content Include="Assets\js\nl-checkout.js" />
     <Content Include="Assets\js\paypal-checkout.js" />
     <Content Include="packages.config" />
@@ -118,6 +120,9 @@
     <Content Include="Views\NganLuong\Index.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
+    <None Include="Properties\PublishProfiles\publish.pubxml" />
+    <Content Include="Views\NganLuong\Admin.cshtml" />
+    <Content Include="Views\NganLuong\SearchResult.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -161,9 +166,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\LoggedOrAuthorizedAttribute.cs" />
-    <Content Include="App_Code\SessionManager.cs" />
-    <Compile Include="App_Code\AllowCrossSiteJsonAttribute.cs" />
+    <Compile Include="App_Code\LoggedOrAuthorizedAttribute.cs" />
+    <Compile Include="App_Code\SessionManager.cs" />
+<Compile Include="App_Code\AllowCrossSiteJsonAttribute.cs" />
     <Compile Include="App_GlobalResources\Application.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

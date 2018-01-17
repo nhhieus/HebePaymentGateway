@@ -22,10 +22,34 @@
     <div class="container footer">
         @Html.Partial("_Footer")
     </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 id="modelHeader" class="modal-title">Modal Header</h4>
+                </div>
+                <div id="modelBody" class="modal-body" style="overflow-wrap: break-word">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <div id="loadingMask" class="popup-container"></div>
+
     <script src="~/scripts/jquery-2.2.4.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/spin.js"></script>
+    <script src="~/Scripts/paymentcore.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

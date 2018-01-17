@@ -24,7 +24,7 @@ namespace GenericPayment
         private void CheckIfUserIsAuthenticated(AuthorizationContext filterContext)
         {
             // If Result is null, we're OK: the user is authenticated and authorized. 
-            if (SessionManager.GetInstance().User != null)
+            if (filterContext.Result == null)
                 return;
 
             // If here, you're getting an HTTP 401 status code. In particular,
