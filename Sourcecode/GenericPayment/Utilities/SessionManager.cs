@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web;
 
-namespace GenericPayment
+namespace GenericPayment.Utilities
 {
     public class SessionManager
     {

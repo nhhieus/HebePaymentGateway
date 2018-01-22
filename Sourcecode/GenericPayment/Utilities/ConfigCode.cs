@@ -47,5 +47,15 @@ namespace GenericPayment.Utilities
         {
             get { return WebConfigurationManager.AppSettings["ReceiverEmail"]; }
         }
+
+        public string AdminUser
+        {
+            get { return WebConfigurationManager.AppSettings["AdminUser"]; }
+        }
+
+        public string AdminPassword
+        {
+            get { return WebConfigurationManager.AppSettings["AdminPassword"]; }
+        }
     }
 }

@@ -1,0 +1,71 @@
+﻿@using System
+@using GenericPayment.Utilities
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Resources.Application.Title</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    @RenderSection("headercss", required: false)
+</head>
+<body>
+    <div class="container header">
+        @Html.Partial("_Header")
+    </div>
+
+    @if (SessionManager.GetInstance().User != null)
+    {
+        var username = SessionManager.GetInstance().User.Username;
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10"><h3>@ViewBag.Title</h3></div>
+                <div class="col-sm-2 text-right">
+                    <span>Hi @username, <a href="#" id="logout">Log out</a></span>
+                    <input type="hidden" id="logoutUrl" value="@Url.Action("Logout", "User")" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <div class="container footer">
+        @Html.Partial("_Footer")
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 id="modelHeader" class="modal-title">Modal Header</h4>
+                </div>
+                <div id="modelBody" class="modal-body" style="overflow-wrap: break-word">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="loadingMask" class="popup-container"></div>
+
+    <script src="~/scripts/jquery-2.2.4.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/spin.js"></script>
+    <script src="~/Scripts/paymentcore.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -31,4 +31,10 @@
     });
 
     $("#loadingMask").fadeOut();
+
+    $("#logout").click(function(e) {
+        e.preventDefault();
+
+        window.location = $("#logoutUrl").val();
+    });
 });

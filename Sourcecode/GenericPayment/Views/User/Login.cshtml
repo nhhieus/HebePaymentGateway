@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container" style="height:400px">
+    <div class="row">
+        <div class="col-sm-4">&nbsp;</div>
+        <div class="col-sm-4 col-sm-offset-2">
+            <div class="container">
+                <div class="panel panel-default" style="width: 40%">
+                    <div class="panel-heading">
+                        <label>
+                            Authentication
+                        </label>
+                    </div>
+                    <div class="panel-body">
+                        <div id="authMessage" class="alert alert-danger hide">
+
+                        </div>
+                        <div class="input-group" style="margin-bottom: 5px">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input id="txtUsername" type="text" class="form-control" name="txtUsername" placeholder="Username">
+                        </div>
+                        <div class="input-group" style="margin-bottom: 5px">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input id="txtPassword" type="password" class="form-control" name="txtPassword" placeholder="Password">
+                        </div>
+                        <div class="input-group" style="margin-bottom: 5px">
+                            <button type="submit" id="login" class="btn btn-primary">Login</button>
+                            <input type="hidden" id="loginUrl" value="@Url.Action("Authenticate", "User")"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">&nbsp;</div>
+    </div>
+
+</div>
+
+@section scripts
+{
+    <script src="~/assets/js/nl-login.js"></script>
+}

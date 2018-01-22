@@ -1,39 +1,21 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using GenericPayment.Utilities;
 
 namespace GenericPayment
 {
-    public class LoggedOrAuthorizedAttribute : AuthorizeAttribute
+    public class LoggedOrAuthorizedAttribute : ActionFilterAttribute
     {
-        public LoggedOrAuthorizedAttribute()
+        public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            View = "error";
-            Master = String.Empty;
-        }
-
-        public String View { get; set; }
-        public String Master { get; set; } 
-
-        public override void OnAuthorization(AuthorizationContext filterContext)
-        {
-            base.OnAuthorization(filterContext);
-
+            base.OnActionExecuting(filterContext);
             CheckIfUserIsAuthenticated(filterContext);
         }
 
-        private void CheckIfUserIsAuthenticated(AuthorizationContext filterContext)
+        private void CheckIfUserIsAuthenticated(ActionExecutingContext filterContext)
         {
-            // If Result is null, we're OK: the user is authenticated and authorized. 
-            if (filterContext.Result == null)
-                return;
-
-            // If here, you're getting an HTTP 401 status code. In particular,
-            // filterContext.Result is of HttpUnauthorizedResult type. Check Ajax here. 
-            if (filterContext.HttpContext.User.Identity.IsAuthenticated)
+            if (SessionManager.GetInstance().User == null || string.IsNullOrEmpty(SessionManager.GetInstance().User.Username))
             {
-                if (String.IsNullOrEmpty(View))
-                    return;
-                var result = new ViewResult { ViewName = View, MasterName = Master };
+                var result = new RedirectResult("~/User/Login");
                 filterContext.Result = result;
             }
         }
