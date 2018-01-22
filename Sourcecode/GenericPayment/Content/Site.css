@@ -3,11 +3,6 @@
     padding-bottom: 2px;
 }
 
-.main {
-    max-width: 500px;
-    margin: auto;
-}
-
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -63,7 +58,7 @@ textarea {
 }
 
 .content-width {
-    width: 97%;
+    width: 97% !important;
 }
 
 /* Payment Options Page*/
