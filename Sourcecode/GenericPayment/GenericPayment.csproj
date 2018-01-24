@@ -104,8 +104,10 @@
     <Content Include="Assets\css\style.css" />
     <Content Include="Assets\css\toastr.css" />
     <Content Include="Assets\img\ajax-loader.gif" />
+    <Content Include="Assets\img\en.svg" />
     <Content Include="Assets\img\hebe.png" />
     <Content Include="Assets\img\pp.png" />
+    <Content Include="Assets\img\vi.svg" />
     <Content Include="Assets\js\nl-login.js" />
     <Content Include="Scripts\paymentcore.js" />
     <Content Include="Assets\js\nl-admin.js" />
@@ -170,6 +172,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\LoggedOrAuthorizedAttribute.cs" />
+    <Compile Include="App_GlobalResources\Application.vi-VN.designer.cs">
+      <DependentUpon>Application.vi-VN.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Utilities\AutoLocalizationHttpModule.cs" />
     <Compile Include="Utilities\SessionManager.cs" />
     <Compile Include="App_Code\AllowCrossSiteJsonAttribute.cs" />
     <Compile Include="App_GlobalResources\Application.Designer.cs">
@@ -204,6 +212,12 @@
     <Content Include="App_GlobalResources\Application.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Application.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Application.vi-VN.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Application.vi-VN.designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <PropertyGroup>

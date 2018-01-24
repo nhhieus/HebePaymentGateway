@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using GenericPayment.Utilities;
 
 namespace GenericPayment.Controllers
 {
@@ -8,6 +9,14 @@ namespace GenericPayment.Controllers
         public ActionResult Index()
         {
             return View("Welcome");
+        }
+
+        [HttpPost]
+        public JsonResult ChangeLanguage(string lang)
+        {
+            SessionManager.GetInstance().Language = lang;
+
+            return Json(new {result = true}, JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -118,61 +118,62 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Attention" xml:space="preserve">
-    <value>Attention</value>
+    <value>Lưu ý</value>
   </data>
   <data name="Authentication" xml:space="preserve">
-    <value>Authentication</value>
+    <value>Dang Nhap</value>
   </data>
   <data name="BuyerDetailMandatory" xml:space="preserve">
-    <value>Please enter fullname, email and phone number to proceed.</value>
+    <value>Vui lòng nhập họ tên, email và số điện thoại.</value>
   </data>
   <data name="CancelPayment" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Hủy</value>
   </data>
   <data name="CommonErrorMessage" xml:space="preserve">
-    <value>Something went wrong! Please try again later.</value>
+    <value>Đã xảy ra lỗi khi xử lý. Vui long thử lại</value>
   </data>
   <data name="DomesticBankMandatory" xml:space="preserve">
-    <value>Please choose a domestic bank to proceed.</value>
+    <value>Vui lòng chọn ngân hang nội đia để tiến hành thanh toán.</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
   </data>
   <data name="FullName" xml:space="preserve">
-    <value>Fullname</value>
+    <value>Họ Tên</value>
   </data>
   <data name="PaybyATMOnline" xml:space="preserve">
-    <value>Online payment by domestic debit card.</value>
+    <value>Thanh toán online bằng thẻ ngân hàng nội địa</value>
   </data>
   <data name="PaybyATMOnlineNote" xml:space="preserve">
-    <value>You need to register Internet-Banking or online payment service at a bank before proceed.</value>
+    <value>Bạn cần đăng ký Internet-Banking hoặc dịch vụ thanh toán trực tuyến tại ngân hàng trước khi thực hiện.</value>
   </data>
   <data name="PaybyCreditCard" xml:space="preserve">
-    <value>Pay by Visa or Mater card</value>
+    <value>Thanh toán bằng thẻ Visa hoặc MasterCard</value>
   </data>
   <data name="PaybyNLWallet" xml:space="preserve">
-    <value>Pay by Ngân Lượng e-wallet</value>
+    <value>Thanh toán bằng Ví điện tử NgânLượng</value>
   </data>
   <data name="PaybyNLWalletDescription" xml:space="preserve">
-    <value>Online payment is secured and protected. All transactions are completely online through domestic or international cards, bank accounts, prepaid cards or other convenient forms.
-Protected and licensed by the State Bank, Nganluong is continuously voted as "Most Popular e-wallet and online payment gateway in 2009 and 2010" and was awarded Sao Khue for "Best electronic wallet ".&lt;br /&gt;Register e-wallet of NgânLượng.vn free at &lt;a href="https://www.nganluong.vn/?portal=nganluong&amp;amp;page=user_register" target="_blank"&gt;here&lt;/a&gt;</value>
+    <value>Thanh toán trực tuyến AN TOÀN và ĐƯỢC BẢO VỆ, sử dụng thẻ ngân hàng trong và ngoài nước hoặc nhiều hình thức tiện lợi khác.
+                            Được bảo hộ &amp; cấp phép bởi NGÂN HÀNG NHÀ NƯỚC, ví điện tử duy nhất được cộng đồng ƯA THÍCH NHẤT 2 năm liên tiếp, Bộ Thông tin Truyền thông trao giải thưởng Sao Khuê
+                            &lt;br /&gt;Giao dịch. Đăng ký ví NgânLượng.vn miễn phí &lt;a href="https://www.nganluong.vn/?portal=nganluong&amp;amp;page=user_register" target="_blank"&gt;tại đây&lt;/a&gt;</value>
   </data>
   <data name="PhoneNumber" xml:space="preserve">
-    <value>Phone number</value>
+    <value>Số Điện Thoại</value>
   </data>
   <data name="PleaseChoosePaymentMethod" xml:space="preserve">
-    <value>Please choose a payment method below</value>
+    <value>Vui lòng chọn phương thức thanh toán dưới đây</value>
   </data>
   <data name="PleaseEnterFollowingInformation" xml:space="preserve">
-    <value>Please enter the following information before proceed.</value>
+    <value>Vui lòng nhập thông tin sau, trước khi tiến hành Thanh Toán</value>
   </data>
   <data name="ProceedPayment" xml:space="preserve">
-    <value>Proceed payment</value>
+    <value>Thanh Toán</value>
   </data>
   <data name="SubTitle" xml:space="preserve">
-    <value>Hebe Payment </value>
+    <value> Phương Thức Thanh Toán</value>
   </data>
   <data name="Title" xml:space="preserve">
-    <value>HebeVietNam Payment Gateway</value>
+    <value>Cổng Thanh Toán HebeVietNam</value>
   </data>
 </root>

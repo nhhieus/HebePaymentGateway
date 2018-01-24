@@ -11,6 +11,8 @@ namespace GenericPayment.Utilities
             return Instance;
         }
 
+        public static string DefaultLanguage = "vi-VN";
+
         private ConfigCode()
         {
         }

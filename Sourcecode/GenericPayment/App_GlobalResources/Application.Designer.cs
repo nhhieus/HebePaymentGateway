@@ -61,7 +61,161 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  Phương Thức Thanh Toán.
+        ///   Looks up a localized string similar to Attention.
+        /// </summary>
+        internal static string Attention {
+            get {
+                return ResourceManager.GetString("Attention", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Authentication.
+        /// </summary>
+        internal static string Authentication {
+            get {
+                return ResourceManager.GetString("Authentication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter fullname, email and phone number to proceed..
+        /// </summary>
+        internal static string BuyerDetailMandatory {
+            get {
+                return ResourceManager.GetString("BuyerDetailMandatory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string CancelPayment {
+            get {
+                return ResourceManager.GetString("CancelPayment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something went wrong! Please try again later..
+        /// </summary>
+        internal static string CommonErrorMessage {
+            get {
+                return ResourceManager.GetString("CommonErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please choose a domestic bank to proceed..
+        /// </summary>
+        internal static string DomesticBankMandatory {
+            get {
+                return ResourceManager.GetString("DomesticBankMandatory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        internal static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fullname.
+        /// </summary>
+        internal static string FullName {
+            get {
+                return ResourceManager.GetString("FullName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Online payment by domestic debit card..
+        /// </summary>
+        internal static string PaybyATMOnline {
+            get {
+                return ResourceManager.GetString("PaybyATMOnline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You need to register Internet-Banking or online payment service at a bank before proceed..
+        /// </summary>
+        internal static string PaybyATMOnlineNote {
+            get {
+                return ResourceManager.GetString("PaybyATMOnlineNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pay by Visa or Mater card.
+        /// </summary>
+        internal static string PaybyCreditCard {
+            get {
+                return ResourceManager.GetString("PaybyCreditCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pay by Ngân Lượng e-wallet.
+        /// </summary>
+        internal static string PaybyNLWallet {
+            get {
+                return ResourceManager.GetString("PaybyNLWallet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Online payment is secured and protected. All transactions are completely online through domestic or international cards, bank accounts, prepaid cards or other convenient forms.
+        ///Protected and licensed by the State Bank, Nganluong is continuously voted as &quot;Most Popular e-wallet and online payment gateway in 2009 and 2010&quot; and was awarded Sao Khue for &quot;Best electronic wallet &quot;.&lt;br /&gt;Register e-wallet of NgânLượng.vn free at &lt;a href=&quot;https://www.nganluong.vn/?portal=nganluong&amp;amp;page=user_register&quot; target=&quot;_b [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PaybyNLWalletDescription {
+            get {
+                return ResourceManager.GetString("PaybyNLWalletDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone number.
+        /// </summary>
+        internal static string PhoneNumber {
+            get {
+                return ResourceManager.GetString("PhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please choose a payment method below.
+        /// </summary>
+        internal static string PleaseChoosePaymentMethod {
+            get {
+                return ResourceManager.GetString("PleaseChoosePaymentMethod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter the following information before proceed..
+        /// </summary>
+        internal static string PleaseEnterFollowingInformation {
+            get {
+                return ResourceManager.GetString("PleaseEnterFollowingInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Proceed payment.
+        /// </summary>
+        internal static string ProceedPayment {
+            get {
+                return ResourceManager.GetString("ProceedPayment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hebe Payment .
         /// </summary>
         internal static string SubTitle {
             get {
@@ -70,7 +224,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cổng Thanh Toán HebeVietNam.
+        ///   Looks up a localized string similar to HebeVietNam Payment Gateway.
         /// </summary>
         internal static string Title {
             get {

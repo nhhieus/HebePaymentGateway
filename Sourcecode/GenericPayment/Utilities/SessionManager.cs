@@ -23,6 +23,27 @@ namespace GenericPayment.Utilities
             }
             set { HttpContext.Current.Session[Key_User] = value; }
         }
+
+        private string Key_Language = "Language";
+
+        public string Language
+        {
+            get
+            {
+                if (HttpContext.Current.Session == null)
+                {
+                    return ConfigCode.DefaultLanguage;
+                }
+
+                if (HttpContext.Current.Session[Key_Language] == null)
+                {
+                    HttpContext.Current.Session[Key_Language] = ConfigCode.DefaultLanguage;
+                }
+
+                return HttpContext.Current.Session[Key_Language] as string;
+            }
+            set { HttpContext.Current.Session[Key_Language] = value; }
+        }
     }
 
     [Serializable]

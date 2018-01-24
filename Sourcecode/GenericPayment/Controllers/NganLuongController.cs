@@ -157,14 +157,14 @@ namespace GenericPayment.Controllers
                         }
                         else
                         {
-                            errorMessage = "Something went wrong! Please try again later.";
+                            errorMessage = Resources.Application.CommonErrorMessage;
                             Logger.GetInstance().Write(string.Format("[Key={0}] Check out succeeded but failed to update NL Token", vm.CashKey));
                         }
                     }
                     else
                     {
                         ;
-                        errorMessage = string.Format("Error Description: {0}. <br/> Something went wrong! Please try again later.", checkoutRs.Description);
+                        errorMessage = string.Format("Error Description: {0}. <br/> {1}", checkoutRs.Description, Resources.Application.CommonErrorMessage);
                         Logger.GetInstance().Write(string.Format("[Key={0}] Failed to check out(Code={1};Desc={2})", vm.CashKey, checkoutRs.Error_code, checkoutRs.Description));
                     }
                 }

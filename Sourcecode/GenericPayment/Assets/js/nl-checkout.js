@@ -10,13 +10,13 @@
 
     if (data["FullName"] == "" || data["Email"] == "" || data["Phone"] == "") {
         $("#divError").removeClass("hide");
-        $("#divError").html("Vui lòng nhập họ tên, email và số điện thoại.");
+        $("#divError").html($("#BuyerDetailMandatory").val());
         return;
     }
 
     if (data["OptionPayment"] == "ATM_ONLINE" && data["BankCode"] == undefined) {
         $("#divError").removeClass("hide");
-        $("#divError").html("Vui lòng chọn ngân hang nội đia để tiến hành thanh toán.");
+        $("#divError").html($("#DomesticBankMandatory").val());
         return;
     }
 

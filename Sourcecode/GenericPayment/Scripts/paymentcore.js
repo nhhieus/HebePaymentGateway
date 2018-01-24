@@ -37,4 +37,48 @@
 
         window.location = $("#logoutUrl").val();
     });
+
+    $("#english").click(function (e) {
+        e.preventDefault();
+
+        var data = { lang: "en-US" };
+        var url = $("#changeLanguageUrl").val();
+
+        $.ajax({
+            url: url,
+            data: data,
+            type: 'POST',
+            success: function (response) {
+                if (response && response.result) {
+                    window.location.reload();
+                }
+
+            },
+            error: function () {
+                alert("Error", 'Something went wrong! Please try again later.');
+            }
+        });
+    });
+
+    $("#vietnam").click(function (e) {
+        e.preventDefault();
+
+        var data = { lang: "vi-VN" };
+        var url = $("#changeLanguageUrl").val();
+
+        $.ajax({
+            url: url,
+            data: data,
+            type: 'POST',
+            success: function (response) {
+                if (response && response.result) {
+                    window.location.reload();
+                }
+
+            },
+            error: function () {
+                alert("Error", 'Something went wrong! Please try again later.');
+            }
+        });
+    });
 });
