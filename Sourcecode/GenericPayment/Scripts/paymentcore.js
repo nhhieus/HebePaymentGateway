@@ -20,7 +20,7 @@
         left: '50%', // Left position relative to parent
         shadow: 'none', // Box-shadow for the lines
         position: 'absolute' // Element positioning
-    }).spin(document.getElementById("loadingMask")); 
+    }).spin(document.getElementById("loadingMask"));
 
     $(document).bind("ajaxSend", function () {
         $("#loadingMask").show();
@@ -32,7 +32,7 @@
 
     $("#loadingMask").fadeOut();
 
-    $("#logout").click(function(e) {
+    $("#logout").click(function (e) {
         e.preventDefault();
 
         window.location = $("#logoutUrl").val();
@@ -43,6 +43,7 @@
 
         var data = { lang: "en-US" };
         var url = $("#changeLanguageUrl").val();
+        var me = this;
 
         $.ajax({
             url: url,
@@ -50,7 +51,7 @@
             type: 'POST',
             success: function (response) {
                 if (response && response.result) {
-                    window.location.reload();
+                    reloadPage();
                 }
 
             },
@@ -65,6 +66,7 @@
 
         var data = { lang: "vi-VN" };
         var url = $("#changeLanguageUrl").val();
+        var me = this;
 
         $.ajax({
             url: url,
@@ -72,7 +74,7 @@
             type: 'POST',
             success: function (response) {
                 if (response && response.result) {
-                    window.location.reload();
+                    reloadPage();
                 }
 
             },
@@ -81,4 +83,15 @@
             }
         });
     });
+
+
 });
+
+function reloadPage() {
+    var url = window.location.href;
+    if (url.indexOf("reload=true") >= 0) {
+        window.location.reload(true);
+    } else {
+        window.location = url + "&reload=true";
+    }
+}

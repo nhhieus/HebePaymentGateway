@@ -106,6 +106,7 @@
     <Content Include="Assets\img\ajax-loader.gif" />
     <Content Include="Assets\img\en.svg" />
     <Content Include="Assets\img\hebe.png" />
+    <Content Include="Assets\img\NganLuongLogo.jpg" />
     <Content Include="Assets\img\pp.png" />
     <Content Include="Assets\img\vi.svg" />
     <Content Include="Assets\js\nl-login.js" />

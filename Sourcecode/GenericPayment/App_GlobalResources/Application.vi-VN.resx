@@ -145,33 +145,34 @@
     <value>Thanh toán online bằng thẻ ngân hàng nội địa</value>
   </data>
   <data name="PaybyATMOnlineNote" xml:space="preserve">
-    <value>Bạn cần đăng ký Internet-Banking hoặc dịch vụ thanh toán trực tuyến tại ngân hàng trước khi thực hiện.</value>
+    <value>Để thực hiện việc thanh toán, thẻ ATM của bạn cần phải đăng ký Internet-Banking hoặc dịch vụ thanh toán trực tuyến. &lt;br/&gt; Chọn ngân hàng của bạn:</value>
   </data>
   <data name="PaybyCreditCard" xml:space="preserve">
-    <value>Thanh toán bằng thẻ Visa hoặc MasterCard</value>
+    <value>Thanh toán bằng thẻ thanh toán quốc tế(Visa, Mastercard, JCB)</value>
   </data>
   <data name="PaybyNLWallet" xml:space="preserve">
     <value>Thanh toán bằng Ví điện tử NgânLượng</value>
   </data>
   <data name="PaybyNLWalletDescription" xml:space="preserve">
-    <value>Thanh toán trực tuyến AN TOÀN và ĐƯỢC BẢO VỆ, sử dụng thẻ ngân hàng trong và ngoài nước hoặc nhiều hình thức tiện lợi khác.
-                            Được bảo hộ &amp; cấp phép bởi NGÂN HÀNG NHÀ NƯỚC, ví điện tử duy nhất được cộng đồng ƯA THÍCH NHẤT 2 năm liên tiếp, Bộ Thông tin Truyền thông trao giải thưởng Sao Khuê
-                            &lt;br /&gt;Giao dịch. Đăng ký ví NgânLượng.vn miễn phí &lt;a href="https://www.nganluong.vn/?portal=nganluong&amp;amp;page=user_register" target="_blank"&gt;tại đây&lt;/a&gt;</value>
+    <value>Đăng ký ví điện tử NgânLượng miễn phí &lt;a href="https://www.nganluong.vn/?portal=nganluong&amp;amp;page=user_register" target="_blank"&gt;tại đây&lt;/a&gt;</value>
+  </data>
+  <data name="PaymentGatewayDescription" xml:space="preserve">
+    <value>Được bảo hộ &amp; cấp phép bởi NGÂN HÀNG NHÀ NƯỚC , NganLuong.vn được bình chọn là "Ví điện tử và Cổng thanh toán trực tuyến được cộng đồng ƯA THÍCH NHẤT" 2 năm liên tiếp và đươc Bộ Thông tin Truyền thông trao giải thưởng Sao Khuê.</value>
   </data>
   <data name="PhoneNumber" xml:space="preserve">
     <value>Số Điện Thoại</value>
   </data>
   <data name="PleaseChoosePaymentMethod" xml:space="preserve">
-    <value>Vui lòng chọn phương thức thanh toán dưới đây</value>
+    <value>Vui lòng chọn một phương thức thanh toán phù hợp:</value>
   </data>
   <data name="PleaseEnterFollowingInformation" xml:space="preserve">
-    <value>Vui lòng nhập thông tin sau, trước khi tiến hành Thanh Toán</value>
+    <value>Sau khi nhập thông tin của bạn bên dưới, bạn sẽ được chuyển hướng về cổng thanh toán Ngân Lượng để hoàn tất thanh toán:</value>
   </data>
   <data name="ProceedPayment" xml:space="preserve">
     <value>Thanh Toán</value>
   </data>
   <data name="SubTitle" xml:space="preserve">
-    <value> Phương Thức Thanh Toán</value>
+    <value>Liên Kết CỔNG THANH TOÁN TRỰC TUYẾN</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>Cổng Thanh Toán HebeVietNam</value>

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Attention" xml:space="preserve">
-    <value>Attention</value>
+    <value>Notes</value>
   </data>
   <data name="Authentication" xml:space="preserve">
     <value>Authentication</value>
@@ -142,35 +142,37 @@
     <value>Fullname</value>
   </data>
   <data name="PaybyATMOnline" xml:space="preserve">
-    <value>Online payment by domestic debit card.</value>
+    <value>Pay by domestic ATM cards.</value>
   </data>
   <data name="PaybyATMOnlineNote" xml:space="preserve">
-    <value>You need to register Internet-Banking or online payment service at a bank before proceed.</value>
+    <value>In order to proceed payment, Your ATM cards need to be registered Internet-Banking or online payment services. &lt;br/&gt;Please choose your bank:</value>
   </data>
   <data name="PaybyCreditCard" xml:space="preserve">
-    <value>Pay by Visa or Mater card</value>
+    <value>Pay by international debit/credit cards(Visa, Mastercard, JCB)</value>
   </data>
   <data name="PaybyNLWallet" xml:space="preserve">
     <value>Pay by Ngân Lượng e-wallet</value>
   </data>
   <data name="PaybyNLWalletDescription" xml:space="preserve">
-    <value>Online payment is secured and protected. All transactions are completely online through domestic or international cards, bank accounts, prepaid cards or other convenient forms.
-Protected and licensed by the State Bank, Nganluong is continuously voted as "Most Popular e-wallet and online payment gateway in 2009 and 2010" and was awarded Sao Khue for "Best electronic wallet ".&lt;br /&gt;Register e-wallet of NgânLượng.vn free at &lt;a href="https://www.nganluong.vn/?portal=nganluong&amp;amp;page=user_register" target="_blank"&gt;here&lt;/a&gt;</value>
+    <value>Free registration for Ngan Luong e-wallet &lt;a href="https://www.nganluong.vn/?portal=nganluong&amp;amp;page=user_register" target="_blank"&gt;here&lt;/a&gt;</value>
+  </data>
+  <data name="PaymentGatewayDescription" xml:space="preserve">
+    <value>Protected and licensed by the State Bank, Nganluong is continuously voted as "The most popular e-wallet and online payment gateway" in 2 consecutive years and was awarded Sao Khue for "Best electronic wallet " by Ministry of Information and Communication.</value>
   </data>
   <data name="PhoneNumber" xml:space="preserve">
     <value>Phone number</value>
   </data>
   <data name="PleaseChoosePaymentMethod" xml:space="preserve">
-    <value>Please choose a payment method below</value>
+    <value>Please choose a payment method below:</value>
   </data>
   <data name="PleaseEnterFollowingInformation" xml:space="preserve">
-    <value>Please enter the following information before proceed.</value>
+    <value>After filling in your information below, you will be directed to Ngan Luong Payment Gateway page to complete payment:</value>
   </data>
   <data name="ProceedPayment" xml:space="preserve">
     <value>Proceed payment</value>
   </data>
   <data name="SubTitle" xml:space="preserve">
-    <value>Hebe Payment </value>
+    <value>Integrated ONLINE PAYMENT GATEWAY</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>HebeVietNam Payment Gateway</value>

@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using GenericPayment.Utilities;
 
 namespace GenericPayment.Controllers
@@ -14,9 +15,18 @@ namespace GenericPayment.Controllers
         [HttpPost]
         public JsonResult ChangeLanguage(string lang)
         {
-            SessionManager.GetInstance().Language = lang;
+            try
+            {
+                SessionManager.GetInstance().Language = lang;
 
-            return Json(new {result = true}, JsonRequestBehavior.AllowGet);
+                return Json(new { result = true }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                Logger.GetInstance().Write(ex, string.Format("[Language={0}] Exception thrown in ChangeLanguage", lang));
+            }
+
+            return Json(new { result = false }, JsonRequestBehavior.AllowGet);
         }
     }
 }

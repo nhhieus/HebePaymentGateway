@@ -6,8 +6,11 @@
 
 <div class="container">
     <div class="container content-width">
+        <div class="row" style="margin-top:10px">
+            <p>@Html.Raw(Resources.Application.PaymentGatewayDescription)</p>
+        </div>
         <div class="row">
-            <h3>@Resources.Application.PleaseChoosePaymentMethod</h3>
+            <p>@Resources.Application.PleaseChoosePaymentMethod</p>
         </div>
         <div class="row">
             <div class="panel-group">
@@ -20,7 +23,7 @@
                     </div>
                     <div class="panel-body">
                         <p>
-                           @Html.Raw(Resources.Application.PaybyNLWalletDescription)
+                            <i>@Html.Raw(Resources.Application.PaybyNLWalletDescription)</i>
                         </p>
                     </div>
                 </div>
@@ -34,7 +37,7 @@
                     <div class="panel-body">
                         <p>
                             <i>
-                                <span style="color:#ff5a00;font-weight:bold;text-decoration:underline;">@Resources.Application.Attention</span>: @Resources.Application.PaybyATMOnlineNote
+                                <span style="color:#ff5a00;font-weight:bold;text-decoration:underline;">@Resources.Application.Attention</span>: @Html.Raw(Resources.Application.PaybyATMOnlineNote)
                             </i>
                         </p>
                         <ul class="cardList clearfix">

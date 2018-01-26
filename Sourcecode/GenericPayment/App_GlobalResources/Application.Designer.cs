@@ -61,7 +61,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Attention.
+        ///   Looks up a localized string similar to Notes.
         /// </summary>
         internal static string Attention {
             get {
@@ -133,7 +133,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Online payment by domestic debit card..
+        ///   Looks up a localized string similar to Pay by domestic ATM cards..
         /// </summary>
         internal static string PaybyATMOnline {
             get {
@@ -142,7 +142,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You need to register Internet-Banking or online payment service at a bank before proceed..
+        ///   Looks up a localized string similar to In order to proceed payment, Your ATM cards need to be registered Internet-Banking or online payment services. &lt;br/&gt;Please choose your bank:.
         /// </summary>
         internal static string PaybyATMOnlineNote {
             get {
@@ -151,7 +151,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pay by Visa or Mater card.
+        ///   Looks up a localized string similar to Pay by international debit/credit cards(Visa, Mastercard, JCB).
         /// </summary>
         internal static string PaybyCreditCard {
             get {
@@ -169,12 +169,20 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Online payment is secured and protected. All transactions are completely online through domestic or international cards, bank accounts, prepaid cards or other convenient forms.
-        ///Protected and licensed by the State Bank, Nganluong is continuously voted as &quot;Most Popular e-wallet and online payment gateway in 2009 and 2010&quot; and was awarded Sao Khue for &quot;Best electronic wallet &quot;.&lt;br /&gt;Register e-wallet of NgânLượng.vn free at &lt;a href=&quot;https://www.nganluong.vn/?portal=nganluong&amp;amp;page=user_register&quot; target=&quot;_b [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Free registration for Ngan Luong e-wallet &lt;a href=&quot;https://www.nganluong.vn/?portal=nganluong&amp;amp;page=user_register&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.
         /// </summary>
         internal static string PaybyNLWalletDescription {
             get {
                 return ResourceManager.GetString("PaybyNLWalletDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Protected and licensed by the State Bank, Nganluong is continuously voted as &quot;The most popular e-wallet and online payment gateway&quot; in 2 consecutive years and was awarded Sao Khue for &quot;Best electronic wallet &quot; by Ministry of Information and Communication..
+        /// </summary>
+        internal static string PaymentGatewayDescription {
+            get {
+                return ResourceManager.GetString("PaymentGatewayDescription", resourceCulture);
             }
         }
         
@@ -188,7 +196,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please choose a payment method below.
+        ///   Looks up a localized string similar to Please choose a payment method below:.
         /// </summary>
         internal static string PleaseChoosePaymentMethod {
             get {
@@ -197,7 +205,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please enter the following information before proceed..
+        ///   Looks up a localized string similar to After filling in your information below, you will be directed to Ngan Luong Payment Gateway page to complete payment:.
         /// </summary>
         internal static string PleaseEnterFollowingInformation {
             get {
@@ -215,7 +223,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hebe Payment .
+        ///   Looks up a localized string similar to Integrated ONLINE PAYMENT GATEWAY.
         /// </summary>
         internal static string SubTitle {
             get {

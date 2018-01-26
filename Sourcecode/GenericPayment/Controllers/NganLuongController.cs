@@ -32,7 +32,7 @@ namespace GenericPayment.Controllers
 
     public class NganLuongController : Controller
     {
-        public async Task<ActionResult> Index(string paykey)
+        public async Task<ActionResult> Index(string paykey, bool reload = false)
         {
             var marketplaceUrl = GetMarketPlaceUrl();
             var db = new DbContext();
@@ -53,18 +53,21 @@ namespace GenericPayment.Controllers
                     }
                     vm.Total = total;
 
-                    using (var httpClient = new HttpClient())
+                    if (!reload)
                     {
-                        var url = marketplaceUrl + "/user/checkout/order-details" + "?gateway=" + details.Gateway + "&invoiceNo=" + details.InvoiceNo + "&paykey=" + paykey + "&hashkey=" + details.Hashkey;
-                        HttpResponseMessage tokenResponse = await httpClient.GetAsync(url);
-                        tokenResponse.EnsureSuccessStatusCode();
-                        string text = await tokenResponse.Content.ReadAsStringAsync();
+                        using (var httpClient = new HttpClient())
+                        {
+                            var url = marketplaceUrl + "/user/checkout/order-details" + "?gateway=" + details.Gateway + "&invoiceNo=" + details.InvoiceNo + "&paykey=" + paykey + "&hashkey=" + details.Hashkey;
+                            HttpResponseMessage tokenResponse = await httpClient.GetAsync(url);
+                            tokenResponse.EnsureSuccessStatusCode();
+                            string text = await tokenResponse.Content.ReadAsStringAsync();
 
-                        // Set the details to db
-                        var response = JsonConvert.DeserializeObject<GenericPayments>(text);
-                        details.PayeeInfos = response.PayeeInfos;
-                        details.MarketplaceUrl = marketplaceUrl;
-                        db.SetDetails(paykey, details);
+                            // Set the details to db
+                            var response = JsonConvert.DeserializeObject<GenericPayments>(text);
+                            details.PayeeInfos = response.PayeeInfos;
+                            details.MarketplaceUrl = marketplaceUrl;
+                            db.SetDetails(paykey, details);
+                        }
                     }
 
                     return View("Index", vm);
